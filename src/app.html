@@ -36,7 +36,8 @@ canvas.snow {
   height: 100vh;
   z-index: -1; /* Set the z-index to -1 to ensure it's below all other content */
   background: transparent linear-gradient(to bottom, #85908c 0%, #323431 100%) repeat scroll 0 0;
-  background-size: cover;
+  background-size: auto; /* Use the intrinsic size of the image */
+  background-repeat: repeat-y; /* Tile the image vertically */
   overflow: hidden;
 }
 
@@ -57,7 +58,8 @@ canvas.snow {
   height: 100%;
   overflow: hidden;
   position: absolute;
-}
+  background-size: auto; /* Use the intrinsic size of the image */
+  background-repeat: repeat-y; /* Tile the image vertically */}
 
 .screen-wrapper {
   position: relative;
@@ -75,9 +77,14 @@ canvas.snow {
 }
 
 .image {
+  background-image: url('%sveltekit.assets%/basement.png');
+  background-size: auto; /* Use the intrinsic size of the image */
+  background-repeat: repeat-y; /* Tile the image vertically */
   width: 100%;
-  height: auto;
-  filter: blur(1.2px);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .vignette {
@@ -812,7 +819,7 @@ setTimeout(() => {
 			screen.add(prop, config.effects[prop].options);
 		}
 	}
-}, 1000);
+}, 10);
 	</script>
 
 </html>
